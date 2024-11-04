@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: center; 
+    background-color: #5E69B0;
+    color: white;
+    font-size: 12pt;
+    padding: 20px;
+}
+
+main {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: red solid 5px; /* border for content can be removed after done styling */
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #5E69B0;
+    color: white;
+    font-size: 12pt;
+    padding: 20px; 
+}
+
+footer ul {
+    display: flex;
+    gap: 20px; 
+    list-style: none;
+}
+
+footer ul li {
+    text-align: center;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
