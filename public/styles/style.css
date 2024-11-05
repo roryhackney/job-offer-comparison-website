@@ -26,8 +26,8 @@ footer {
     align-items: center; 
     background-color: #5E69B0;
     color: white;
-    font-size: 12pt;
-    padding: 20px; 
+    font-size: 18pt;
+    padding: 25px; 
 }
 
 footer ul {
@@ -49,3 +49,64 @@ footer ul li a {
 footer ul li a:hover {
     text-decoration: underline;
 }
+
+#introduction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 10px;
+}
+
+#overview-features{
+    display: flex;
+    flex-direction: row;
+    background-color: #E9EAF1;
+    color: black;
+    width: fit-content;
+    padding: 50px;
+}
+
+#overview-features img{
+    border-radius: 50px;
+}
+
+
+#overview-content{
+    font-size: 20pt;
+    font-weight: bold;
+    padding-top: 100px;
+    text-align: center;
+    line-height: 1.5;
+    padding-right: 20px;
+
+
+}
+
+#title-joe{
+    font-family: Tahoma, sans-serif;
+    font-size: 30pt;
+}
+
+#start-as-guest{
+    font-size: 18pt;
+    padding: 20px;
+    border-radius: 50px;
+    color: white;
+    background-color: #5E69B0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+#login-index{
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15pt;
+
+    
+}
+
+
+
+
