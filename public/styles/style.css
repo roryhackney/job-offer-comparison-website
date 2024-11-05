@@ -73,11 +73,11 @@ footer ul li a:hover {
 
 #overview-content{
     font-size: 20pt;
-    font-weight: bold;
-    padding-top: 100px;
+    font-weight:500;
+    padding-top: 50px;
     text-align: center;
     line-height: 1.5;
-    padding-right: 20px;
+    padding-right: 25px;
 
 
 }
@@ -103,6 +103,7 @@ footer ul li a:hover {
     padding: 10px;
     text-decoration: none;
     font-size: 15pt;
+    font-weight: bold;
 
     
 }
