@@ -17,7 +17,6 @@ main {
     background-color: white;
     color: black;
     padding: 10px;
-    border: red solid 5px; /* border for content can be removed after done styling */
 }
 
 footer {
@@ -63,7 +62,7 @@ footer ul li a:hover {
     background-color: #E9EAF1;
     color: black;
     width: fit-content;
-    padding: 50px;
+    padding: 60px;
 }
 
 #overview-features img{
