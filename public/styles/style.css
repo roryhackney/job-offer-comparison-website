@@ -107,6 +107,53 @@ footer ul li a:hover {
     
 }
 
+#login-form{
+    text-align: center;
+    background-color: #E9EAF1;
+    padding: 100px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    border: black 5px solid;
+
+}
+
+#login-button-pos{
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    margin-left:200px;
+}
+
+#signup-button-pos{
+    text-align: center;
+    margin-top: 20px;
+    margin-left:70px;
+}
+
+#button-reset{
+    text-decoration: none;
+    font-size: 12pt;
+    margin-top: 12px;
+
+}
+
+#button-signup{
+    text-decoration: none;
+    font-size: 14pt;
+    margin-top: 30px;
+    color: black;
+
+}
+
+
+#Login-Button{
+    padding: 10px;
+    font-size: 14pt;
+    margin-right: 10px;
+}
+
 
 
 
