@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">    
+    <link rel="stylesheet" href="../styles/style.css">   
+    <link rel="stylesheet" href="../styles/inputform.css">    
+ 
     <title>Log In</title>
 </head>
 <body>
@@ -11,16 +13,30 @@
     <header>
         <!-- Navigation and logo placeholder -->
         <nav>
-            <h1>Navigation</h1>
+            <h1 id="title-joe">Login Page</h1>
             <!-- Navigation links placeholder -->
         </nav>
     </header>
 
     <main>
         <!-- Main content placeholder -->
-        <div>
-            <h1>Content</h1>
-         </div>
+        <div id="login-form">
+            <div class="form-group">
+                <label for="usr">Username:</label>
+                <input id="username" name="usernameInput" required>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password :</label>
+                <input id="password" name="passwordInput" required>
+            </div>         
+            <div id = "login-button-pos">
+                <button id="Login-Button" onclick="">Login</button>
+                <a id="button-reset" href="">Reset Password</a>
+            </div>
+            <div id="signup-button-pos">
+                <a id="button-signup" href="signup.html">Sign Up</a>
+            </div>
+        </div>
     </main>
 
     <footer>
