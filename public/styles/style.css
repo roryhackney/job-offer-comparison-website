@@ -235,7 +235,6 @@ footer ul li a:hover {
 #why-us-container{
     display: flex;
     flex-direction: row;
-    background-color: #5E69B0;
     margin-top: 20px;
     margin-bottom: 30px;
 
@@ -247,6 +246,7 @@ footer ul li a:hover {
     margin-top: 20px;
     margin-left: 50px;
     margin-bottom: 50px;
+    border-radius: 50%;
 }
 
 #why-us-paragraph{
@@ -255,6 +255,5 @@ footer ul li a:hover {
     font-size: 17pt;
     line-height: 1.5;
     padding: 100px;
-    background-color: #5E69B0;
-    color: white;
+    color: black;
 }
