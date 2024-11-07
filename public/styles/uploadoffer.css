@@ -7,14 +7,14 @@ body {
     background-color:white;
 }
 header {
-    background-color: lightskyblue;
+    background-color: #5E69B0;
     color: white;
     padding: 20px;
     text-align: center;
 }
 
 form {
-    background-color:burlywood;
+    background-color:white;
     padding: 20px 30px;
     border-radius: 8px;
     text-align: center;
@@ -23,7 +23,7 @@ form {
 
 label[for="fileInput"]:hover {
     display: inline-block;
-    background-color:purple;
+    background-color:#5E69B0;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -32,7 +32,7 @@ label[for="fileInput"]:hover {
 }
 
 input[type="file"]:hover {
-    background-color:purple;
+    background-color:#5E69B0;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
