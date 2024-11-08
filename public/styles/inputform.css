@@ -124,3 +124,13 @@
   footer ul li a:hover {
     text-decoration: underline;
   }
+
+  #optionsForm {
+    display: none;
+  }
+  #totalDisplay {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: green;
+  }
