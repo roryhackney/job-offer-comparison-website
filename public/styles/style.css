@@ -59,7 +59,7 @@ footer ul li a:hover {
 #overview-features{
     display: flex;
     flex-direction: row;
-    background-color: #E9EAF1;
+    background-color: white;
     color: black;
     width: fit-content;
     padding: 60px;
@@ -179,6 +179,12 @@ footer ul li a:hover {
     margin-top: 30px;
     margin-bottom: 50px;
 
+}
+
+#Key-Features-Title{
+    color: white;
+    background-color: #5E69B0;
+    padding: 10px;
 }
 
 
