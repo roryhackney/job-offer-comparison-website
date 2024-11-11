@@ -21,105 +21,74 @@
                 <!-- Company -->
                 <div class="form-group">
                     <label for="company">Company</label>
+
                     <input type="text" id="company" name="company" min="0" step="0.01" placeholder="e.g. AAAA" required>
+
                 </div>
     
                 <!-- Job Title -->
                 <div class="form-group">
                     <label for="jobTitle">Job Title</label>
+                  
                     <input type="text" id="jobTitle" name="jobTitle" min="0" step="0.01" placeholder="e.g. AAAA" required>
                 </div>
     
                 <!-- Base Salary -->
+
                 <div class="form-group">
                     <label for="baseSalary">Base Salary ($):</label>
                     <input type="number" id="baseSalary" name="baseSalary" min="0" step="0.01" placeholder="e.g. 50000" required>
                 </div>
 
                 <!-- Bonus -->
+
                 <div class="form-group">
                     <label for="bonus">Bonus ($):</label>
                     <input type="number" id="bonus" name="bonus" min="0" step="0.01" placeholder="e.g. 5000">
                 </div>
 
+
                 <!-- Signing Bonus -->
+              
                 <div class="form-group">
                     <label for="signingBonus">Signing Bonus ($):</label>
                     <input type="number" id="signingBonus" name="signingBonus" min="0" step="0.01" placeholder="e.g. 2000">
                 </div>
 
-                <!-- 401K Match -->
                 <div class="form-group">
-                    <label for="k401Match">401K Match (%):</label>
+                    <label for="healthInsurance">Health Insurance ($):</label>
+                    <input type="number" id="healthInsurance" name="healthInsurance" min="0" step="0.01" placeholder="e.g. 3000">
+                </div>
+                <div class="form-group">
+                    <label for="k401Match">401K Match ($):</label>
                     <input type="number" id="k401Match" name="k401Match" min="0" step="0.01" placeholder="e.g. 1500">
                 </div>
-
-                <!-- Stock Compensation -->
                 <div class="form-group">
-                    <label for="stockOptions">Stock Compensation ($):</label>
-                    <input type="number" id="stockOptions" name="stockOptions" min="0" step="0.01" placeholder="e.g. 10000">
+                    <label for="paidTimeOff">Paid Time Off ($):</label>
+                    <input type="number" id="paidTimeOff" name="paidTimeOff" min="0" step="0.01" placeholder="e.g. 800">
                 </div>
-
-                <!-- Health Insurance -->
                 <div class="form-group">
-                    <label for="healthInsurance">Health Insurance (%)</label>
-                    <select id="healthInsurance">
-                        <option value=""></option>
-                        <option value="fullCoverage">100%</option>
-                        <option value="partialCoverage">50%</option>
-                        <option value="partialCoverage">25%</option>
-                    </select>
+                    <label for="transportationCost">Transportation Cost ($):</label>
+                    <input type="number" id="transportationCost" name="transportationCost" min="0" step="0.01" placeholder="e.g. 1200">
                 </div>
-
-                <!-- Other -->
                 <div class="form-group">
-                    <label for="other">Other Compensation ($):</label>
-                    <input type="number" id="other" name="other" min="0" step="0.01" placeholder="e.g. 10000">
+                    <label for="educationReimbursement">Educational Reimbursement ($):</label>
+                    <input type="number" id="educationReimbursement" name="educationReimbursement" min="0" step="0.01" placeholder="e.g. 5000">
                 </div>
-
-                <!-- More Options -->
-                <div class="moreOptions">
-                    <button type="button" onclick="toggleForm()">More Options</button>
+                <div>
+                    <button type="moreOptions">More Options</button>
                 </div>
-                
-                <!-- Hidden form element -->
-                <!-- Educational Reimbursement-->
-                <!-- Transportation Cost -->
-                <div id="optionsForm">
-                    <form>
-                        <label for="relocationCost">Relocation Cost ($)</label>
-                        <input type="number" id="relocationCost" name="relocationCost" min="0" step="0.01" placeholder="e.g. 1000">
-
-                        <label for="educationReimbursement">Educational Reimbursement ($):</label>
-                        <input type="number" id="educationReimbursement" name="educationReimbursement" min="0" step="0.01" placeholder="e.g. 5500">
-
-                        <label for="transportationCost">Transportation Cost ($):</label>
-                        <input type="number" id="transportationCost" name="transportationCost" min="0" step="0.01" placeholder="e.g. 1200">
-
-                        <label for="workType">Work Type</label>
-                        <select id="workType">
-                            <option value=""></option>
-                            <option value="in-person">In-person</option>
-                            <option value="remote">Remote</option>
-                            <option value="hybrid">Hybrid</option>
-                        </select>
-                    </form>
-                </div>
-                <!--- End -->
     
                 <div class="button-container">
-                    <button type="button">Add Job Offer</button>
+                    <button type="button" onclick="addJobOffer()">Add Job Offer</button>
+
                     <button type="submit">Submit</button>
                 </div>
             </form>
         </section>
 
     </main>
-    
-    <script src="./scripts/inputform.js"></script>
-
-    <!-- Display total -->
-    <h3 id="totalDisplay">Total Compensation: $0.00</h3>
+  
 
     <footer>
         <!-- Footer content placeholder -->
