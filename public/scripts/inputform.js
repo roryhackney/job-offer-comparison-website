@@ -1,57 +1,73 @@
-/**
- * Function to display the "more options" button when clicked
- */
-function toggleForm() {
-    const form = document.getElementById("optionsForm");
-    if (form.style.display === "none" || form.style.display === "") {
-        form.style.display = "block"; // Show form
-    } else {
-        form.style.display = "none";  // Hide form
+document.addEventListener("DOMContentLoaded", function() {
+
+    /**
+     * Toggles the display of the description text when the [?] button is clicked
+     */
+    function showDescription(descriptionId) {
+        const description = document.getElementById(descriptionId);
+
+        if (description) {
+            description.style.display = description.style.display === "none" || description.style.display === ""
+                ? "block"
+                : "none";
+        } else {
+            console.warn(`Element with ID "${descriptionId}" not found.`);
+        }
     }
-}
 
-/**
- * Function to calculate and display the total compensation
- */
+    /**
+     * Toggles the custom input field if the user selects "other"
+     */
+    function toggleCustomInput(field) {
+        const customInput = document.getElementById(`custom${capitalizeFirstLetter(field)}`);
+        const selectInput = document.getElementById(field);
 
-// Add event listener to handle form submission
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent the form from actually submitting
-    calculateTotal();        // Call the function to calculate the total
+        if (selectInput.value === "other") {
+            customInput.style.display = "block";
+            customInput.value = ""; // Clear previous input
+        } else {
+            customInput.style.display = "none";
+            customInput.value = ""; // Clear previous input
+        }
+    }
+
+    /**
+     * Capitalizes the first letter of a string
+     */
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    /**
+     * Toggle additional form visibility
+     */
+    function toggleForm() {
+        const form = document.getElementById("optionsForm");
+        if (form.style.display === "none" || form.style.display === "") {
+            form.style.display = "block"; // Show form
+        } else {
+            form.style.display = "none";  // Hide form
+        }
+    }
+
+    /**
+     * Event listener for the "More Options" button
+     */
+
+    const optionsButton = document.querySelector('.moreOptions button');
+    if (optionsButton) {
+        optionsButton.addEventListener('click', toggleForm);
+    }
+
+    /**
+     * Event listener for all [?] buttons to show descriptions
+     */
+    const descriptionLinks = document.querySelectorAll('[onclick^="showDescription"]');
+    descriptionLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const descriptionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
+            showDescription(descriptionId);
+        });
+    });
+
 });
-
-function calculateTotal() {
-    // Get the values of all relevant input fields, using a fallback value of 0 if not filled
-    const baseSalary = parseFloat(document.getElementById("baseSalary").value) || 0;
-    const bonus = parseFloat(document.getElementById("bonus").value) || 0;
-    const stockOptions = parseFloat(document.getElementById("stockOptions").value) || 0;
-    const signingBonus = parseFloat(document.getElementById("signingBonus").value) || 0;
-    const k401Match = parseFloat(document.getElementById("k401Match").value) || 0;
-    const transportationCost = parseFloat(document.getElementById("transportationCost").value) || 0;
-    const educationReimbursement = parseFloat(document.getElementById("educationReimbursement").value) || 0;
-
-    // Check if relocationCost input is visible and has value
-    const relocationCostElement = document.getElementById("relocationCost");
-    const relocationCost = (relocationCostElement && relocationCostElement.style.display !== "none")
-        ? parseFloat(relocationCostElement.value) || 0
-        : 0;
-
-    // Log the values for debugging
-    console.log("Base Salary:", baseSalary);
-    console.log("Bonus:", bonus);
-    console.log("Stock Options:", stockOptions);
-    console.log("Signing Bonus:", signingBonus);
-    console.log("401K Match:", k401Match);
-    console.log("Transportation Cost:", transportationCost);
-    console.log("Education Reimbursement:", educationReimbursement);
-    console.log("Relocation Cost:", relocationCost);
-
-    // Calculate the total compensation
-    const total = baseSalary + bonus + stockOptions + signingBonus + k401Match + transportationCost + educationReimbursement + relocationCost;
-
-    // Display the total
-    const totalDisplay = document.getElementById("totalDisplay");
-    if (totalDisplay) {
-        totalDisplay.innerText = 'Total Compensation: $' + total.toFixed(2);
-    }
-}
