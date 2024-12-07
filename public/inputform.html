@@ -9,26 +9,23 @@
 <body>
 
     <header>
-        <!-- Navigation and logo placeholder -->
-        <nav>
             <h1 id="title-joe">Job Offer Evaluation Tool</h1>
-            <!-- Navigation links placeholder -->
-        </nav>
     </header>
     <main>
         <section>
+            <div id="formsContainer"></div>
             <form id="jobOfferForm">
                 <!-- Company -->
                 <div class="form-group">
                     <label for="company">Company: <span onclick="showDescription('companyDescription')">[?]</span></label>
-                    <input type="text" id="company" name="company" min="0" step="0.01" placeholder="e.g. AAAA" required>
+                    <input type="text" id="company" name="company" min="0" step="0.01" placeholder="e.g. ABC" required>
                     <div class="description" id="companyDescription">The name of the company offering the job.</div>
                 </div>
     
                 <!-- Job Title -->
                 <div class="form-group">
                     <label for="jobTitle">Job Title: <span onclick="showDescription('jobTitleDescription')">[?]</span></label>
-                    <input type="text" id="jobTitle" name="jobTitle" min="0" step="0.01" placeholder="e.g. AAAA" required>
+                    <input type="text" id="jobTitle" name="jobTitle" min="0" step="0.01" placeholder="e.g. ABC" required>
                     <div class="description" id="jobTitleDescription">The role or position you will hold within the company.</div>
                 </div>
                 </div>
@@ -37,39 +34,39 @@
 
                 <div class="form-group">
                     <label for="baseSalary">Base Salary ($): <span onclick="showDescription('baseSalaryDescription')">[?]</span></label>
-                    <input type="number" id="baseSalary" name="baseSalary" min="0" step="0.01" placeholder="e.g. 50000" required>
+                    <input type="number" id="baseSalary" name="baseSalary" min="0" step="50000" placeholder="e.g. 50000" required>
                     <div class="description" id="baseSalaryDescription">The fixed annual salary before taxes, excluding bonuses or additional compensation.</div>
                 </div>
 
                 <!-- Bonus -->
                 <div class="form-group">
                     <label for="bonus">Bonus ($): <span onclick="showDescription('bonusDescription')">[?]</span></label>
-                    <input type="number" id="bonus" name="bonus" min="0" step="0.01" placeholder="e.g. 5000">
+                    <input type="number" id="bonus" name="bonus" min="0" step="5000" placeholder="e.g. 5000">
                     <div class="description" id="bonusDescription">Extra compensation awarded based on performance or meeting specific goals.</div>
                 </div>
 
                 <!-- Signing Bonus -->
                 <div class="form-group">
                     <label for="signingBonus">Signing Bonus ($): <span onclick="showDescription('signingBonusDescription')">[?]</span></label>
-                    <input type="number" id="signingBonus" name="signingBonus" min="0" step="0.01" placeholder="e.g. 2000">
+                    <input type="number" id="signingBonus" name="signingBonus" min="0" step="5000" placeholder="e.g. 2000">
                     <div class="description" id="signingBonusDescription">A one-time payment offered to new hires as an incentive to join the company.</div>
 
                 </div>
 
-                <!-- Stock Compensation -->
-                <div class="form-group">
-                    <label for="stockOptions">Stock Compensation ($): <span onclick="showDescription('stockOptionsDescription')">[?]</span></label>
-                    <input type="number" id="stockOptions" name="stockOptions" min="0" step="0.01" placeholder="e.g. 10000">
-                    <div class="description" id="stockOptionsDescription">Includes stock options, RSUs, and other equity incentives that offer financial benefits tied to company performance.</div>
-                </div>
-
                 <!-- 401K Match -->
-                <div class="form-group">
-                    <label for="k401Match">401K Match (%): <span onclick="showDescription('k401MatchDescription')">[?]</span></label>
-                    <input type="number" id="k401Match" name="k401Match" min="0" step="0.01" placeholder="e.g. 1500">
-                    <div class="description" id="k401MatchDescription">The amount your employer adds to your retirement savings </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="k401Contribution">401K Contribution ($): <span onclick="showDescription('k401ContributionDescription')">[?]</span></label>
+                        <input type="number" id="k401Contribution" name="k401Contribution" min="0" step="1000" placeholder="e.g. 5000" required>
+                        <div class="description" id="k401ContributionDescription">The amount you plan to contribute to your 401K account.</div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="k401Match">401K Match (%): <span onclick="showDescription('k401MatchDescription')">[?]</span></label>
+                        <input type="number" id="k401Match" name="k401Match" min="0" step="1" placeholder="e.g. 5" required>
+                        <div class="description" id="k401MatchDescription">The percentage your employer matches your contribution to your 401K.</div>
+                    </div>
                 </div>
-
                 <!-- Health Insurance -->
                 <div class="form-group">
                     <label for="healthInsurance">Health Insurance (%): <span onclick="showDescription('healthInsuranceDescription')">[?]</span></label>
@@ -85,7 +82,7 @@
                 <!-- Other -->
                 <div class="form-group">
                     <label for="other">Other Compensation ($): <span onclick="showDescription('otherCompensationDescription')">[?]</span></label>
-                    <input type="number" id="other" name="other" min="0" step="0.01" placeholder="e.g. 10000">
+                    <input type="number" id="other" name="other" min="0" step="1000" placeholder="e.g. 10000">
                     <div class="description" id="otherCompensationDescription">Other compensation not included on the list</div>
                 </div>
 
@@ -94,23 +91,31 @@
                     <button type="button" onclick="toggleForm()">More Options</button>
                 </div>
                 
-                <!-- Hidden form element -->
-                <!-- Educational Reimbursement-->
-                <!-- Transportation Cost -->
+                <!-- Hidden form (Stock Compensation, Work Type, Educational Reimbursement & Transportation Cost) -->
+    
                 <div id="optionsForm">
                     <form>
-                        <label for="relocationCost">Relocation Cost ($): <span onclick="showDescription('relocationDescription')">[?]</span></label>
-                        <input type="number" id="relocationCost" name="relocationCost" min="0" step="0.01" placeholder="e.g. 1000">
-                        <div class="description" id="relocationDescription">Cost of moving.</div>
 
-                        <label for="educationReimbursement">Educational Reimbursement ($): <span onclick="showDescription('educationReimbursementDescription')">[?]</span></label>
-                        <input type="number" id="educationReimbursement" name="educationReimbursement" min="0" step="0.01" placeholder="e.g. 5500">
-                        <div class="description" id="educationReimbursementDescription">Financial assistance for pursuing further education or professional development.</div>
-
-                        <label for="transportationCost">Transportation Cost ($): <span onclick="showDescription('transportationCostDescription')">[?]</span></label>
-                        <input type="number" id="transportationCost" name="transportationCost" min="0" step="0.01" placeholder="e.g. 1200">
-                        <div class="description" id="transportationCostDescription">Reimbursement for commuting expenses, such as transit fares or parking fees.</div>
-
+                        <!-- Stock Compensation -->
+                        <div class="form-group">
+                            <label for="stockCompensationType">Stock Compensation Type:<span onclick="showDescription('stockCompensationDescription')">[?]</span></label>
+                            <select id="stockCompensationType" name="stockCompensationType">
+                                <option value=""></option>
+                                <option value="stockOptions">Stock Options</option>
+                                <option value="rsu">RSU (Restricted Stock Units)</option>
+                                <option value="espp">Employee Stock Purchase Plan (ESPP)</option>
+                                
+                            </select>
+                                <div class="description" id="stockCompensationDescription">Includes stock options, RSUs, and other equity incentives that offer financial benefits.  
+                                    <ul>
+                                        <li>Stock Options - The right to buy shares at a fixed price in the future.</li>
+                                        <li>RSU - Shares granted with certain restrictions, often vesting over time.</li>
+                                        <li> ESSP - A program allowing employees to buy company stock at a discounted price.</li>
+                                    </ul>
+                                </div>
+                        </div>
+                        
+                        <!-- Work Type -->
                         <label for="workType">Work Type: <span onclick="showDescription('WorkTypeDescription')">[?]</span></label>
                         <select id="workType">
                             <option value=""></option>
@@ -119,7 +124,26 @@
                             <option value="hybrid">Hybrid</option>
                         </select>
                         <div class="description" id="WorkTypeDescription">In-person - work in office, Remote - work at home, Hybrid - mixed of office and remote work.</div>
+
+                        <!-- Relocation Cost -->
+                        <label for="relocationCost">Relocation Cost ($): <span onclick="showDescription('relocationDescription')">[?]</span></label>
+                        <input type="number" id="relocationCost" name="relocationCost" min="0" step="100" placeholder="e.g. 1000">
+                        <div class="description" id="relocationDescription">Cost of moving.</div>
+
+                        <!-- Educational Reimbursement -->
+                        <label for="educationReimbursement">Educational Reimbursement ($): <span onclick="showDescription('educationReimbursementDescription')">[?]</span></label>
+                        <input type="number" id="educationReimbursement" name="educationReimbursement" min="0" step="1000" placeholder="e.g. 5500">
+                        <div class="description" id="educationReimbursementDescription">Financial assistance for pursuing further education or professional development.</div>
+
+                        <!-- Transportation Cost -->
+                        <label for="transportationCost">Transportation Cost ($): <span onclick="showDescription('transportationCostDescription')">[?]</span></label>
+                        <input type="number" id="transportationCost" name="transportationCost" min="0" step="100" placeholder="e.g. 1200">
+                        <div class="description" id="transportationCostDescription">Reimbursement for commuting expenses, such as transit fares or parking fees.</div>  
                     </form>
+                </template>
+
+                <!-- Container to display form details -->
+                <div class="job-offer-details-container"></div> 
                 </div>
                 <!--- End -->
     
