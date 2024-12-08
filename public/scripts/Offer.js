@@ -14,8 +14,9 @@ export class Offer {
         //relocationCost: int (should be made negative?)
         //educationalReimb: int
         //transportationCost: int (make negative?)
+        //ptoDays: int
 
-    constructor(company, title, salary=0, bonus=0, signingBonus=0, contributionTo401k=0, percentMatch401k=0, insurance, otherCompensation=0, stockType='', stockMarketPrice=0, stockPurchasePrice=0, stockQuantity=0, workType='', relocationCost=0, educationReimbursement=0, transportationCost=0) {
+    constructor(company, title, salary=0, bonus=0, signingBonus=0, contributionTo401k=0, percentMatch401k=0, insurance, otherCompensation=0, stockType='', stockMarketPrice=0, stockPurchasePrice=0, stockQuantity=0, workType='', relocationCost=0, educationReimbursement=0, transportationCost=0, ptoDays=0) {
         this.company = company;
         this.title = title;
         this.salary = salary;
@@ -33,7 +34,7 @@ export class Offer {
         this.educationReimbursement = educationReimbursement;
         this.transportationCost = transportationCost; //treat as negative in the algorithm
         //value = daily pay * num days
-        this.pto = Math.floor(salary / 365.0 * ptoDays);
+        this.ptoValue = ptoDays * (salary / 260);
     }
 
     get getHeading() {
@@ -41,7 +42,7 @@ export class Offer {
     }
     
     get getTotal() {
-        return this.salary + this.bonus + this.signingBonus + this.companyContribution401k + this.otherCompensation + this.stockValue - this.relocationCost + this.educationReimbursement - this.transportationCost;
+        return this.salary + this.bonus + this.signingBonus + this.companyContribution401k + this.otherCompensation + this.stockValue - this.relocationCost + this.educationReimbursement - this.transportationCost + this.ptoValue;
         //TODO: implement actual algorithm
         //TODO: figure out how to handle value of insurance
     }
@@ -60,7 +61,8 @@ export class Offer {
             "workType": this.workType,
             "relocationCost": this.relocationCost,
             "educationReimbursement": this.educationReimbursement,
-            "transportationCost": this.transportationCost
+            "transportationCost": this.transportationCost,
+            "ptoValue": this.ptoValue
         };
     }
 }
