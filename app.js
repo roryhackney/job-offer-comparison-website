@@ -191,6 +191,17 @@ document.addEventListener("DOMContentLoaded", function () {
             score2++;
             pros2.push("Higher Total Compensation");
         }
+
+        localStorage.setItem("offer1", JSON.stringify({
+            "score": score1,
+            "pros": pros1,
+            "offer": offer1
+        }));
+        localStorage.setItem("offer2", JSON.stringify({
+            "score": score2,
+            "pros": pros2,
+            "offer": offer2
+        }));
         
          // CHART FUNCTION IS HERE
         // Display comparison results 

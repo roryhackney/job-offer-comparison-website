@@ -5,65 +5,97 @@ import {Offer} from "./Offer.js";
 (function() {
     const chart = document.getElementById("mychart");
 
+    // //Test with demo data before connecting to Nguyen's code - works
+    // const OFFERS = [
+    //     {"score": 10, pros: ["Some", "cool", "pros"], "offer":
+    //         new Offer("Company1", "Title1", 80000, 10000, 1000, 2000, 5, 0, 1300, "rsu", 0, 0, 0, "remote", 1000, 1200, 100, 10)
+    //     },
+    //     {"score": 15, pros: ["Other", "excellent", "wins"], "offer":
+    //         new Offer("Company2", "Title2", 90000, 5000, 1200, 4000, 2, 0, 1400, "rsu", 0, 0, 0, "hybrid", 2000, 1100, 1000, 100)
+    //     }
+    // ];
+    
+    // score, pros, offer objects
     const OFFERS = [
-        new Offer("Software Engineer",  "Company",   110000, 10000, 30000, 0.05, 28, 28000),
-        new Offer("Software Developer", "Startup",   120000, 15000, 25000, 0.04, 32, 30000),
-        new Offer("Web Developer",      "Nonprofit", 90000,  9000,  28000, 0.06, 30, 20000)
-    ]
+        JSON.parse(localStorage.getItem("offer1")),
+        JSON.parse(localStorage.getItem("offer2"))
+    ];
+        
 
     sortOffersInPlace(OFFERS);
     displayOffersRanks(OFFERS);
 
-    //sorts offers by total profit
+    //sorts offers by score instead of total cash value
     function sortOffersInPlace(offers) {
-        return offers.sort((a, b) => b.getTotal - a.getTotal);
+        return offers.sort((a, b) => b.score - a.score);
     }
 
+    //Display title, company, score, total value, pros for each offer
     function displayOffersRanks(offers) {
         const list = document.getElementById("ranking");
+        //create a list item for each offer to display information
         for (let index = 0; index < offers.length; index++) {
+            const off = offers[index].offer;
+            //create elements and text content
             let li = document.createElement("li");
             let h3 = document.createElement("h3")
-            h3.innerText = offers[index].getTitle;
+            h3.innerText = off.getHeading;
+            let scoreP = document.createElement("p");
+            scoreP.innerText = "Score: " + offers[index].score;
+            let valueP = document.createElement("p");
+            valueP.innerText = "Value: " + Math.round(off.getTotal);
+            let prosP = document.createElement("p");
+            prosP.innerText = "Pros: " + offers[index].pros.join(", ");
+            
+            //add content to the document
             li.appendChild(h3);
+            li.appendChild(scoreP);
+            li.appendChild(valueP);
+            li.appendChild(prosP);
             list.appendChild(li);
         }
     }
 
     //using Chart.js library
+    //TODO: update to display SCORE and FIELDS
     new Chart(chart, {
         type: 'bar',
         data: {
-            labels: OFFERS.map(offer => offer.getTitle),
+            labels: OFFERS.map(off => off.offer.getHeading),
             datasets: [
                 {label: 'Salary',
-                backgroundColor: "orange",
-                data: OFFERS.map(offer => offer.salary)
+                backgroundColor: "red",
+                data: OFFERS.map(off => off.offer.salary)
                 },
 
                 {label: 'Bonus',
-                backgroundColor: "pink",
-                data: OFFERS.map(offer => offer.bonus)
+                backgroundColor: "orange",
+                data: OFFERS.map(off => off.offer.bonus)
                 },
 
-                {label: 'Stocks',
+                {label: "Signing Bonus",
                 backgroundColor: "yellow",
-                data: OFFERS.map(offer => offer.stocksValue)
+                data: OFFERS.map(off => off.offer.signingBonus)
                 },
 
                 {label: '401k Match',
                 backgroundColor: "green",
-                data: OFFERS.map(offer => offer.match401k)
+                data: OFFERS.map(off => off.offer.companyContribution401k)
+                },
+
+                {label: 'Other',
+                backgroundColor: "blue",
+                data: OFFERS.map(off => off.offer.otherCompensation)
+                },
+
+                {label: "Edu Reimbursement",
+                backgroundColor: "purple",
+                data: OFFERS.map(off => off.offer.educationReimbursement)
                 },
 
                 {label: 'PTO',
-                backgroundColor: "blue",
-                data: OFFERS.map(offer => offer.pto)
-                },
-
-                {label: 'Healthcare',
-                backgroundColor: "red",
-                data: OFFERS.map(offer => offer.healthcareValue)
+                backgroundColor: "pink",
+                data: OFFERS.map(off => off.offer.ptoValue)
                 }
             ]
         },
