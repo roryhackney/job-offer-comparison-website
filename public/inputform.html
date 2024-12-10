@@ -117,6 +117,12 @@
                     <button type="button" onclick="toggleForm()">More Options</button>
                 </div>
                 
+                <!-- PTO (Days) -->
+                <label for="ptoDays">PTO (Days): <span onclick="showDescription('ptoDescription')">[?]</span></label>
+                <input type="number" id="ptoDays" name="ptoDays" min="0" step="1" placeholder="e.g. 15">
+                <div class="description" id="ptoDescription">Total number of Paid Time Off (PTO) days offered, including vacation days, personal leave, and sometimes sick days.</div>
+                
+                
                 <!-- Hidden form (Stock Compensation, Work Type, Educational Reimbursement & Transportation Cost) -->
     
                 <div id="optionsForm">

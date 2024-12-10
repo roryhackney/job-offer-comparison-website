@@ -124,7 +124,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add event listener to the cloned button ---- this maybe where the issue is
         const clonedButton = newForm.querySelector('.addJobOfferButton');
         if (clonedButton) {
-            clonedButton.addEventListener('click', createJobOfferForm);
+            
+            clonedButton.disabled = true;
         }
         
         return newForm;
