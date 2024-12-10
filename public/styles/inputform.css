@@ -1,201 +1,303 @@
+/* Universal Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    background-color: #f4f4f4; 
-    font-family: Arial, sans-serif; 
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 20px;
-  }
-  
-  /* Header styling */
-  header {
-    width: 100%;
-    background-color: #5E69B0; 
-    padding: 20px 0;
-    text-align: center; 
-  }
-  
-  /* Title styling */
-  #title-joe {
-    font-family: 'Tahoma', sans-serif; 
-    font-size: 36pt; 
-    color: white;
-    margin: 0; 
-  }
-  
-  form {
-    width: 100%; 
-    max-width: 100%; 
-    background: white; 
-    padding: 20px; 
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    flex-grow: 1; 
-    overflow-y: auto; 
-    margin: 0 auto; 
-    box-sizing: border-box; 
-  }
-  
-  .form-group {
-    margin-bottom: 15px; 
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
 
-  /* Fun Colors */
-  
-  .info-icon {
-    cursor: pointer; 
-    color: #3a49a9; 
-    margin-left: 5px; 
-  }
-  
-  .description {
-    display: none; 
-    font-size: 12px;
-    color: #2f3e7b;
-  }
-  
-  label span {
-    color: #6f7fdb;
-  }
+/* Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4; 
+  font-family: Arial, sans-serif; 
+}
 
-  label {
-    color: #2f3e7b; 
-  }
+/* Headings */
+h2 {
+  text-align: center;
+  font-size: 20px;
+}
+
+header {
+  width: 100%;
+  background-color: #5E69B0; 
+  padding: 20px 0;
+  text-align: center; 
+}
+
+#title-joe {
+  font-family: 'Tahoma', sans-serif; 
+  font-size: 36pt; 
+  color: white;
+  margin: 0; 
+}
+
+form {
+  width: 100%; 
+  max-width: 100%; 
+  background: white; 
+  padding: 20px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  flex-grow: 1; 
+  overflow-y: auto; 
+  margin: 0 auto; 
+}
+
+.form-group {
+  flex: 1; 
+  margin-bottom: 15px; 
+}
+
+.info-icon {
+  cursor: pointer; 
+  color: #3a49a9; 
+  margin-left: 5px; 
+}
+
+.description {
+  display: none; 
+  font-size: 12px;
+  color: #2f3e7b;
+}
+
+label span {
+  color: #6f7fdb;
+}
+
+label {
+  color: #2f3e7b; 
+}
+
+input[type="number"], 
+input[type="text"], 
+select { 
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #D7DDFF;
+  color: black; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+button:hover {
+  background-color: #5E69B0; 
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: #5E69B0;
+  color: white;
+  font-size: 18pt;
+  padding: 25px; 
+  margin-top: 10px; 
+}
+
+footer ul {
+  display: flex;
+  gap: 20px; 
+  list-style: none;
+}
+
+footer ul li {
+  text-align: center;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
 
 
-  input[type="number"], 
-  input[type="text"], 
-  select { 
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center; 
-    gap: 10px; 
-    margin-top: 20px; 
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #D7DDFF;
-    color: black; 
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-  }
-  
-  button:hover {
-    background-color: #5E69B0; 
-  }
-  
-  /* Footer styling */
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    background-color: #5E69B0;
-    color: white;
-    font-size: 18pt;
-    padding: 25px; 
-    margin-top: 10px; 
-  }
-  
-  footer ul {
-    display: flex;
-    gap: 20px; 
-    list-style: none;
-  }
-  
-  footer ul li {
-    text-align: center;
-  }
-  
-  footer ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-  }
-  
-  footer ul li a:hover {
-    text-decoration: underline;
-  }
+#optionsForm .form-group, 
+#optionsForm label, 
+#optionsForm input, 
+#optionsForm select {
+  margin: 10px 0;
+}
 
-  #optionsForm {
-    display: none;
-  }
+#optionsForm {
+  display: none;
+}
 
-  /* 401K fields container */
+
 .form-group-row {
   display: flex;
   gap: 20px; 
   justify-content: space-between;
 }
 
-
-.form-group {
-  flex: 1; 
-}
-
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  width: 100%; 
-}
-
-/* Input Form Navigation Links on header */
-
-/* Style for the header title */
-header h1 {
-  color: black; 
-  text-align: center;
-  margin: 20px 0; 
-}
-
-/* Style the navigation bar */
-/* Style for the header title */
-header h1 {
-  text-align: center; 
-  margin: 20px 0; 
-}
-
-
-/* Popup styling for Job Offer Form*/
 #popupContainer {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
-  z-index: 1000;
-  background-color: rgba(0, 128, 0, 0.9);
+  display: none; 
+  z-index: 10000; 
+  background-color: rgba(172, 22, 142, 0.9);
   color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-#optionsForm {
-  display: none;
+/* Stock Compensation Style */
+/* Common styling for all stock compensation fields */
+.form-group {
+  margin-bottom: 15px;
 }
 
+/* Stock Options Fields (Purple Theme) */
+.stock-options-fields {
+  background-color: #f3e5f5; /* Light purple background */
+  border: 2px solid #9c4dcc; /* Purple border */
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
 
+.stock-options-fields label {
+  color: #7b1fa2; /* Deep purple for text */
+  font-weight: bold;
+}
+
+.stock-options-fields input {
+  border: 1px solid #7b1fa2;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.stock-options-fields input:focus {
+  outline: none;
+  border-color: #ab47bc; /* Lighter purple border on focus */
+  box-shadow: 0 0 5px rgba(171, 71, 188, 0.5); /* Focus shadow with light purple */
+}
+
+/* RSU Fields (Light Purple Theme) */
+.rsu-fields {
+  background-color: #f3e5f5; /* Light purple background */
+  border: 2px solid #ab47bc; /* Lighter purple border */
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.rsu-fields label {
+  color: #9c4dcc; /* Medium purple color for text */
+  font-weight: bold;
+}
+
+.rsu-fields input {
+  border: 1px solid #9c4dcc;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.rsu-fields input:focus {
+  outline: none;
+  border-color: #7b1fa2; /* Darker purple border on focus */
+  box-shadow: 0 0 5px rgba(123, 31, 162, 0.5); /* Focus shadow with a darker purple */
+}
+
+/* ESPP Fields  */
+.espp-fields {
+  background-color: #f3e5f5; /* Soft lavender background */
+  border: 2px solid #ab47bc; /* Soft purple border */
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.espp-fields label {
+  color: #9c4dcc; /* Medium lavender color for text */
+  font-weight: bold;
+}
+
+.espp-fields input {
+  border: 1px solid #9c4dcc;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.espp-fields input:focus {
+  outline: none;
+  border-color: #7b1fa2; /* Darker purple border on focus */
+  box-shadow: 0 0 5px rgba(123, 31, 162, 0.5); /* Focus shadow with purple */
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Success message style */
+.success-message {
+  color: green;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Job Form */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.job-form {
+  display: none;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.job-form input, 
+.job-form select, 
+.job-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  width: auto;
+  padding: 10px 20px;
+}

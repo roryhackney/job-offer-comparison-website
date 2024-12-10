@@ -25,9 +25,8 @@
                 <!-- Job Title -->
                 <div class="form-group">
                     <label for="jobTitle">Job Title: <span onclick="showDescription('jobTitleDescription')">[?]</span></label>
-                    <input type="text" id="jobTitle" name="jobTitle" min="0" step="0.01" placeholder="e.g. ABC" required>
+                    <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g. ABC" required>
                     <div class="description" id="jobTitleDescription">The role or position you will hold within the company.</div>
-                </div>
                 </div>
     
                 <!-- Base Salary -->
@@ -50,7 +49,6 @@
                     <label for="signingBonus">Signing Bonus ($): <span onclick="showDescription('signingBonusDescription')">[?]</span></label>
                     <input type="number" id="signingBonus" name="signingBonus" min="0" step="5000" placeholder="e.g. 2000">
                     <div class="description" id="signingBonusDescription">A one-time payment offered to new hires as an incentive to join the company.</div>
-
                 </div>
 
                 <!-- 401K Match -->
@@ -67,6 +65,28 @@
                         <div class="description" id="k401MatchDescription">The percentage your employer matches your contribution to your 401K.</div>
                     </div>
                 </div>
+
+                <!-- Stock Compensation -->
+                <div class="form-group">
+                    <label for="stockCompensationType">Stock Compensation Type:<span onclick="showDescription('stockCompensationDescription')">[?]</span></label>
+                    <select id="stockCompensationType" name="stockCompensationType">
+                        <option value=""></option>
+                        <option value="stockOptions">Stock Options</option>
+                        <option value="rsu">RSU (Restricted Stock Units)</option>
+                        <option value="espp">Employee Stock Purchase Plan (ESPP)</option>
+                        
+                    </select>
+                        <div class="description" id="stockCompensationDescription">Includes stock options, RSUs, and other equity incentives that offer financial benefits.  
+                            <ul>
+                                <li>Stock Options - The right to buy shares at a fixed price in the future.</li>
+                                <li>RSU - Shares granted with certain restrictions, often vesting over time.</li>
+                                <li> ESSP - A program allowing employees to buy company stock at a discounted price.</li>
+                            </ul>
+                        </div>
+                </div>
+                
+                <!-- Dynamic Inputs for Stock Compensation Fields -->
+                <div id="stockCompensationFields"></div>
                 <!-- Health Insurance -->
                 <div class="form-group">
                     <label for="healthInsurance">Health Insurance (%): <span onclick="showDescription('healthInsuranceDescription')">[?]</span></label>
@@ -86,6 +106,12 @@
                     <div class="description" id="otherCompensationDescription">Other compensation not included on the list</div>
                 </div>
 
+                <!-- PTO (Days) -->
+                <label for="ptoDays">PTO (Days): <span onclick="showDescription('ptoDescription')">[?]</span></label>
+                <input type="number" id="ptoDays" name="ptoDays" min="0" step="1" placeholder="e.g. 15">
+                <div class="description" id="ptoDescription">Total number of Paid Time Off (PTO) days offered, including vacation days, personal leave, and sometimes sick days.</div>
+                
+
                 <!-- More Options -->
                 <div class="moreOptions">
                     <button type="button" onclick="toggleForm()">More Options</button>
@@ -94,27 +120,7 @@
                 <!-- Hidden form (Stock Compensation, Work Type, Educational Reimbursement & Transportation Cost) -->
     
                 <div id="optionsForm">
-                    <form>
-
-                        <!-- Stock Compensation -->
-                        <div class="form-group">
-                            <label for="stockCompensationType">Stock Compensation Type:<span onclick="showDescription('stockCompensationDescription')">[?]</span></label>
-                            <select id="stockCompensationType" name="stockCompensationType">
-                                <option value=""></option>
-                                <option value="stockOptions">Stock Options</option>
-                                <option value="rsu">RSU (Restricted Stock Units)</option>
-                                <option value="espp">Employee Stock Purchase Plan (ESPP)</option>
-                                
-                            </select>
-                                <div class="description" id="stockCompensationDescription">Includes stock options, RSUs, and other equity incentives that offer financial benefits.  
-                                    <ul>
-                                        <li>Stock Options - The right to buy shares at a fixed price in the future.</li>
-                                        <li>RSU - Shares granted with certain restrictions, often vesting over time.</li>
-                                        <li> ESSP - A program allowing employees to buy company stock at a discounted price.</li>
-                                    </ul>
-                                </div>
-                        </div>
-                        
+                    <div>
                         <!-- Work Type -->
                         <label for="workType">Work Type: <span onclick="showDescription('WorkTypeDescription')">[?]</span></label>
                         <select id="workType">
@@ -131,33 +137,33 @@
                         <div class="description" id="relocationDescription">Cost of moving.</div>
 
                         <!-- Educational Reimbursement -->
-                        <label for="educationReimbursement">Educational Reimbursement ($): <span onclick="showDescription('educationReimbursementDescription')">[?]</span></label>
-                        <input type="number" id="educationReimbursement" name="educationReimbursement" min="0" step="1000" placeholder="e.g. 5500">
-                        <div class="description" id="educationReimbursementDescription">Financial assistance for pursuing further education or professional development.</div>
+                        <label for="educationReimbursement">Educational Reimbursement ($): <span onclick="showDescription('educationalReimbursementDescription')">[?]</span></label>
+                        <input type="number" id="educationalReimbursement" name="educationalReimbursement" min="0" step="1000" placeholder="e.g. 5500">
+                        <div class="description" id="educationalReimbursementDescription">Financial assistance for pursuing further education or professional development.</div>
 
                         <!-- Transportation Cost -->
                         <label for="transportationCost">Transportation Cost ($): <span onclick="showDescription('transportationCostDescription')">[?]</span></label>
                         <input type="number" id="transportationCost" name="transportationCost" min="0" step="100" placeholder="e.g. 1200">
                         <div class="description" id="transportationCostDescription">Reimbursement for commuting expenses, such as transit fares or parking fees.</div>  
-                    </form>
-                </template>
+                    </div>
 
                 <!-- Container to display form details -->
                 <div class="job-offer-details-container"></div> 
-                </div>
-                <!--- End -->
     
                 <div class="button-container">
                     <button type="button">Add Job Offer</button>
                     <button type="submit">Submit</button>
+
                 </div>
+
+                <div id="errorMessages" style="color: red;"></div>
             </form>
         </section>
 
     </main>
     
     <script src="./scripts/inputform.js"></script>
-    
+
     <footer>
         <!-- Footer content placeholder -->
         <ul>
