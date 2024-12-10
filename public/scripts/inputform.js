@@ -75,8 +75,6 @@ document.addEventListener("DOMContentLoaded", function() {
         optionsButton.addEventListener('click', toggleForm);
     }
 
-
-
     /**
      * Limit job offer form creation to a maximum of 5
      */
@@ -84,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxForms = 5;
 
     const addJobOfferButton = document.querySelector('.button-container button[type="button"]');
+
     const formsContainer = document.getElementById('formsContainer');
     const initialForm = document.getElementById('jobOfferForm');
 
@@ -107,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function() {
      * Create a new job offer form by cloning the original form
      */
     function createJobOfferForm() {
-  
+
         const formTemplate = document.getElementById('jobOfferForm');
         const newForm = formTemplate.cloneNode(true);
-        
+
      
         const inputs = newForm.querySelectorAll('input, select');
         inputs.forEach(input => {
@@ -120,13 +119,23 @@ document.addEventListener("DOMContentLoaded", function() {
         // Customize ID so its unique
         newForm.id = `jobOfferForm${formCount + 1}`;
 
+        const addJobOfferButton = newForm.querySelector('.button-container button[type="button"]');
 
-        // Add event listener to the cloned button ---- this maybe where the issue is
-        const clonedButton = newForm.querySelector('.addJobOfferButton');
-        if (clonedButton) {
-            
-            clonedButton.disabled = true;
-        }
+
+            addJobOfferButton.addEventListener('click', () => {
+                if (formCount < maxForms) {
+                    const newForm = createJobOfferForm();
+                    formsContainer.appendChild(newForm);
+                    formCount++;
+        
+                    if (formCount === maxForms) {
+                        addJobOfferButton.disabled = true;
+                        addJobOfferButton.textContent = 'Maximum of 5 Forms Reached';
+                    }
+                }
+            }); 
+        
+
         
         return newForm;
     }
@@ -148,10 +157,9 @@ function cloneJobOfferButton() {
     const container = document.getElementById('container');
     container.appendChild(clonedButton);
 
-    //THIS MIGHT BE THE ISSUE
     clonedButton = newForm.querySelector('.addJobOfferButton');
     if (clonedButton) {
-        clonedButton.addEventListener('click', createJobOfferForm);
+        clonedButton.addEventListener('click', createJobOfferButton);
     }
         alert('Cloned button clicked');
 }
@@ -284,10 +292,18 @@ function validateForm(form) {
         errorMessages.push('Health Insurance option must be selected.');
     }
 
-    const otherCompensation = form.querySelector('#otherCompensation');
-    if (otherCompensation && otherCompensation.value < 0) {
+    // Validate other 
+    const other = form.querySelector('#other');
+    if (other && other.value < 0) {
         valid = false;
         errorMessages.push('Other Compensation must be a positive number or left empty.');
+    }
+
+    // Validate Relocation Cost
+    const ptoDays = form.querySelector('#ptoDays');
+    if (ptoDays && ptoDays.value < 0) {
+        valid = false;
+        errorMessages.push('PTO days must be a positive number or left empty.');
     }
 
     // Validate Relocation Cost
