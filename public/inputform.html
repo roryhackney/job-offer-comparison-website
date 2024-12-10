@@ -18,7 +18,7 @@
                 <!-- Company -->
                 <div class="form-group">
                     <label for="company">Company: <span onclick="showDescription('companyDescription')">[?]</span></label>
-                    <input type="text" id="company" name="company" min="0" step="0.01" placeholder="e.g. ABC" required>
+                    <input type="text" id="company" name="company" placeholder="e.g. ABC" required>
                     <div class="description" id="companyDescription">The name of the company offering the job.</div>
                 </div>
     
@@ -33,21 +33,21 @@
 
                 <div class="form-group">
                     <label for="baseSalary">Base Salary ($): <span onclick="showDescription('baseSalaryDescription')">[?]</span></label>
-                    <input type="number" id="baseSalary" name="baseSalary" min="0" step="50000" placeholder="e.g. 50000" required>
+                    <input type="number" id="baseSalary" name="baseSalary" min="0" step="1" placeholder="e.g. 50000" required>
                     <div class="description" id="baseSalaryDescription">The fixed annual salary before taxes, excluding bonuses or additional compensation.</div>
                 </div>
 
                 <!-- Bonus -->
                 <div class="form-group">
                     <label for="bonus">Bonus ($): <span onclick="showDescription('bonusDescription')">[?]</span></label>
-                    <input type="number" id="bonus" name="bonus" min="0" step="5000" placeholder="e.g. 5000">
+                    <input type="number" id="bonus" name="bonus" min="0" step="1" placeholder="e.g. 5000">
                     <div class="description" id="bonusDescription">Extra compensation awarded based on performance or meeting specific goals.</div>
                 </div>
 
                 <!-- Signing Bonus -->
                 <div class="form-group">
                     <label for="signingBonus">Signing Bonus ($): <span onclick="showDescription('signingBonusDescription')">[?]</span></label>
-                    <input type="number" id="signingBonus" name="signingBonus" min="0" step="5000" placeholder="e.g. 2000">
+                    <input type="number" id="signingBonus" name="signingBonus" min="0" step="1" placeholder="e.g. 2000">
                     <div class="description" id="signingBonusDescription">A one-time payment offered to new hires as an incentive to join the company.</div>
                 </div>
 
@@ -55,7 +55,7 @@
                 <div class="form-group-row">
                     <div class="form-group">
                         <label for="k401Contribution">401K Contribution ($): <span onclick="showDescription('k401ContributionDescription')">[?]</span></label>
-                        <input type="number" id="k401Contribution" name="k401Contribution" min="0" step="1000" placeholder="e.g. 5000" required>
+                        <input type="number" id="k401Contribution" name="k401Contribution" min="0" step="1" placeholder="e.g. 5000" required>
                         <div class="description" id="k401ContributionDescription">The amount you plan to contribute to your 401K account.</div>
                     </div>
                 
@@ -116,12 +116,7 @@
                 <div class="moreOptions">
                     <button type="button" onclick="toggleForm()">More Options</button>
                 </div>
-                
-                <!-- PTO (Days) -->
-                <label for="ptoDays">PTO (Days): <span onclick="showDescription('ptoDescription')">[?]</span></label>
-                <input type="number" id="ptoDays" name="ptoDays" min="0" step="1" placeholder="e.g. 15">
-                <div class="description" id="ptoDescription">Total number of Paid Time Off (PTO) days offered, including vacation days, personal leave, and sometimes sick days.</div>
-                
+
                 
                 <!-- Hidden form (Stock Compensation, Work Type, Educational Reimbursement & Transportation Cost) -->
     
@@ -152,14 +147,13 @@
                         <input type="number" id="transportationCost" name="transportationCost" min="0" step="100" placeholder="e.g. 1200">
                         <div class="description" id="transportationCostDescription">Reimbursement for commuting expenses, such as transit fares or parking fees.</div>  
                     </div>
-
+                </div>
                 <!-- Container to display form details -->
                 <div class="job-offer-details-container"></div> 
     
                 <div class="button-container">
                     <button type="button">Add Job Offer</button>
                     <button type="submit">Submit</button>
-
                 </div>
 
                 <div id="errorMessages" style="color: red;"></div>
