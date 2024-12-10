@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const addJobOfferButton = newForm.querySelector('.button-container button[type="button"]');
 
+
             addJobOfferButton.addEventListener('click', () => {
                 if (formCount < maxForms) {
                     const newForm = createJobOfferForm();
@@ -134,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }); 
         
+
         
         return newForm;
     }
