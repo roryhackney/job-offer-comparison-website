@@ -20,7 +20,7 @@ import {Offer} from "./Offer.js";
         JSON.parse(localStorage.getItem("offer1")),
         JSON.parse(localStorage.getItem("offer2"))
     ];
-        
+    console.log("OFFERS", OFFERS);
 
     sortOffersInPlace(OFFERS);
     displayOffersRanks(OFFERS);
@@ -39,18 +39,18 @@ import {Offer} from "./Offer.js";
             //create elements and text content
             let li = document.createElement("li");
             let h3 = document.createElement("h3")
-            h3.innerText = off.getHeading;
+            h3.innerText = off.title + " at " + off.company;
             let scoreP = document.createElement("p");
             scoreP.innerText = "Score: " + offers[index].score;
-            let valueP = document.createElement("p");
-            valueP.innerText = "Value: " + Math.round(off.getTotal);
+            // let valueP = document.createElement("p");
+            // valueP.innerText = "Value: " + Math.round(off.getTotal);
             let prosP = document.createElement("p");
             prosP.innerText = "Pros: " + offers[index].pros.join(", ");
             
             //add content to the document
             li.appendChild(h3);
             li.appendChild(scoreP);
-            li.appendChild(valueP);
+            // li.appendChild(valueP);
             li.appendChild(prosP);
             list.appendChild(li);
         }
@@ -61,7 +61,7 @@ import {Offer} from "./Offer.js";
     new Chart(chart, {
         type: 'bar',
         data: {
-            labels: OFFERS.map(off => off.offer.getHeading),
+            labels: OFFERS.map(off => off.offer.title + " at " + off.offer.company),
             datasets: [
                 {label: 'Salary',
                 backgroundColor: "red",

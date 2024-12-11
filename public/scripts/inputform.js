@@ -217,23 +217,23 @@ document.getElementById('stockCompensationType').addEventListener('change', func
 });
 
 // Validate Form before Submission
-document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault();  
+// document.getElementById('form').addEventListener('submit', function(event) {
+//     event.preventDefault();  
     
-    if (validateForm()) {
-        // If validation passes, gather form data
-        const formData = new FormData(event.target);
+//     if (validateForm()) {
+//         // If validation passes, gather form data
+//         const formData = new FormData(event.target);
         
-        console.log('Form Data:', Object.fromEntries(formData.entries()));
+//         console.log('Form Data:', Object.fromEntries(formData.entries()));
 
-        alert('Form has been successfully validated!');
+//         alert('Form has been successfully validated!');
 
-        // Submit the form manually after validation
-        event.target.submit();  
-    } else {
-        console.log('Form is invalid. Please check your input.');
-    }
-});
+//         // Submit the form manually after validation
+//         event.target.submit();  
+//     } else {
+//         console.log('Form is invalid. Please check your input.');
+//     }
+// });
 
 // Function to validate the form
 function validateForm(form) {
